@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/ponsb/OneDrive/Documents/uneviedefourmi/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++1z -o CMakeFiles\\graph.dir\\main.cpp.obj -c C:\\Users\\ponsb\\OneDrive\\Documents\\uneviedefourmi\\main.cpp",
-  "file": "C:/Users/ponsb/OneDrive/Documents/uneviedefourmi/main.cpp",
-  "output": "CMakeFiles/graph.dir/main.cpp.obj"
-}
-]
