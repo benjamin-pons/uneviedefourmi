@@ -2,13 +2,14 @@
 #define ANTS_HPP
 
 #include <iostream>
+#include "node.hpp"
 
 class Ants {
     public:
-        int room = 0;
+        Node *room;
         int name = 1;
         Ants(int name);
-        void changeRoom(int room);
+        void changeRoom(Node *ptr);
 };
 
 #endif
