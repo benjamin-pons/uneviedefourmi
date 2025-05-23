@@ -8,6 +8,7 @@ class Ants {
     public:
         Node *room = nullptr;
         int name = 0;
+        bool arrived = false;
         Ants(int name);
         void changeRoom(Node *ptr);
 };
