@@ -7,8 +7,11 @@ Ants::Ants(int name) {
 }
 
 void Ants::changeRoom(Node *ptr) {
-    room->removeAnt();
+    if (room != nullptr) {
+        room->removeAnt();
+    }
     this->room = ptr;
     room->addAnt();
-    // std::cout << "Ajout de 1 a room : " << room->id << std::endl;
+
+    return;
 }

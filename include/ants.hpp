@@ -6,8 +6,8 @@
 
 class Ants {
     public:
-        Node *room;
-        int name = 1;
+        Node *room = nullptr;
+        int name = 0;
         Ants(int name);
         void changeRoom(Node *ptr);
 };
