@@ -10,43 +10,73 @@ void printStepBar (int step) {
     cout << "\n*****E" << step << "*****" << endl;
 }
 
+
+
 void anthill1() {
-    
-    Node room0 = Node(0, 2);
-    Node room1 = Node(1);
-    Node room2 = Node(2);
-    Node room3 = Node(3, 2);
 
-    Ants ant1 = Ants(1);
-    Ants ant2 = Ants(2);
-    // Ants ant3 = Ants(3);
+    // Creating Nodes in a vector
+    std::vector<std::shared_ptr<Node>> anthill;
+    for (int i; i < 4; i++) {
+        anthill.push_back(std::make_shared<Node>(i));;
+    }
 
-    ant1.changeRoom(&room0);
-    ant2.changeRoom(&room0);
-    // ant3.changeRoom(&room0);
+    // Creating Ants in a vector
+    vector<Ants> ants;
+    for (int i; i < 2; i++) {
+        ants.push_back(Ants(i));
+    }
 
+    // Putting ants in starting room
+    for (Ants& ant : ants) {
+        ant.changeRoom(anthill[0]);
+    }
+
+    // Initializing step count
     int step = 1;
     
-    vector<Ants> ants = {ant1, ant2};
+    // Links nodes together
+    int matrix[4][4] = {{0, 1, 1, 0},
+                        {1, 0, 0, 1},
+                        {1, 0, 0, 1},
+                        {0, 1, 1, 0}};
 
-    while (!room3.isFull()) {
+    for (int n = 0; n < 4; n++) {
+        for(int m = 0; m < 4; m++) {
+            if (matrix[n][m] == 1) {
+                anthill[n]->addNeighbor(anthill[m]);
+            }
+        }
+    }
+
+    anthill[0]->showNeighbor();
+    cout << endl;
+    anthill[1]->showNeighbor();
+    cout << endl;
+    anthill[2]->showNeighbor();
+    cout << endl;
+    anthill[3]->showNeighbor();
+    cout << endl;
+
+    
+
+    while (!anthill[3]->isFull()) {
         string steps = "";
         for (Ants &ant : ants) {
-            if (!room1.isFull() && ant.room->id == 0) {
-                ant.changeRoom(&room1);
+            if (!anthill[1]->isFull() && ant.room->id == 0) {
+                ant.changeRoom(anthill[1]);
                 steps += "\nf" + to_string(ant.name) + " - Sv - S" +  to_string(ant.room->id); 
                 continue;
             }
 
-            if (!room2.isFull() && ant.room->id == 0) {
-                ant.changeRoom(&room2);
+            if (!anthill[2]->isFull() && ant.room->id == 0) {
+                ant.changeRoom(anthill[2]);
                 steps += "\nf" + to_string(ant.name) + " - Sv - S" +  to_string(ant.room->id);
                 continue;
             }
 
             if (ant.room->id == 1 || ant.room->id == 2) {
                 int old_room = ant.room->id;
-                ant.changeRoom(&room3);
+                ant.changeRoom(anthill[3]);
                 steps += "\nf" + to_string(ant.name) + " - S" + to_string(old_room) + " - S" +  to_string(ant.room->id);
                 continue;
             }

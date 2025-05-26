@@ -6,11 +6,11 @@
 
 class Ants {
     public:
-        Node *room = nullptr;
+        std::shared_ptr<Node> room;
         int name = 0;
         bool arrived = false;
         Ants(int name);
-        void changeRoom(Node *ptr);
+        void changeRoom(std::shared_ptr<Node> ptr);
 };
 
 #endif
