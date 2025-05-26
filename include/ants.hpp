@@ -6,7 +6,7 @@
 
 class Ants {
     public:
-        std::shared_ptr<Node> room;
+        std::shared_ptr<Node> room = nullptr;
         int name = 0;
         bool arrived = false;
         Ants(int name);
