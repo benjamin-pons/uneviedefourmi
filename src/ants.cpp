@@ -6,9 +6,13 @@ Ants::Ants(int name) {
     this->name = name;
 }
 
-void Ants::changeRoom(Node *ptr) {
-    room->removeAnt();
-    this->room = ptr;
-    room->addAnt();
-    // std::cout << "Ajout de 1 a room : " << room->id << std::endl;
+void Ants::changeRoom(std::shared_ptr<Node> ptr) {
+    if (room != nullptr) {
+        room->removeAnt();
+    }
+    room = ptr;
+
+    if (room != nullptr) {
+        room->addAnt();
+    }
 }

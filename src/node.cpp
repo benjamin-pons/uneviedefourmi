@@ -1,4 +1,5 @@
 #include "node.hpp"
+#include <iostream>
 
 Node::Node(int roomId) {
     this->capacity = 1;
@@ -25,4 +26,16 @@ void Node::addAnt() {
 
 void Node::removeAnt() {
     this->population--;
+}
+
+void Node::addNeighbor(std::shared_ptr<Node> n) {
+    neighbors.push_back(n);
+}
+
+void Node::showNeighbor() {
+    for (std::shared_ptr<Node> &n : neighbors) {
+        if (n) {
+            std::cout << n->id << std::endl;
+        }
+    }
 }
