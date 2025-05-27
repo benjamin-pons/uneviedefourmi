@@ -15,11 +15,12 @@ void algorithm(std::vector<std::shared_ptr<Node>> anthill, std::vector<Ants> ant
     while (!anthill[3]->isFull()) {
         std::string steps = "";
         for (Ants &ant : ants) {
-            if (ant.room->id == 3) {
+            if (ant.room->isEnding) {
                 continue; // Ant has already arrived, skip to the next
             }
+
             else {
-                for (std::shared_ptr<Node> neighbor : anthill[ant.room->id]->neighbors) {        
+                for (std::shared_ptr<Node> neighbor : anthill[ant.room->id]->neighbors) { 
                     if (!neighbor->isFull() && (ant.room->id < neighbor->id)) {
                         int old_room = ant.room->id;
                         ant.changeRoom(neighbor);
