@@ -4,16 +4,11 @@
 #include <string>
 #include "ants.hpp"
 #include "node.hpp"
+#include "algo.hpp"
 using namespace std;
 
-void printStepBar (int step) {
-    cout << "\n*****E" << step << "*****" << endl;
-}
-
-
-
-void anthill1() {
-    int ANTS_AMOUNT = 2;
+void anthill0() {
+    int ANTS_AMOUNT = 4;
 
     // Creating Nodes in a vector
     std::vector<std::shared_ptr<Node>> anthill;
@@ -48,39 +43,12 @@ void anthill1() {
             }
         }
     }
-
-    // Initializing step count
-    int step = 1;
-    
-    while (!anthill[3]->isFull()) {
-        string steps = "";
-        for (Ants &ant : ants) {
-            if (ant.room->id == 3) {
-                continue; // Ant has already arrived, skip to the next
-            }
-            else {
-                for (std::shared_ptr<Node> neighbor : anthill[ant.room->id]->neighbors) {        
-                    if (!neighbor->isFull() && (ant.room->id < neighbor->id)) {
-                        int old_room = ant.room->id;
-                        ant.changeRoom(neighbor);
-                        steps += "\nf" + to_string(ant.name) + " - S" + to_string(old_room) + " - S" +  to_string(ant.room->id);
-                        break;
-                    }
-                }
-            }
-        }
-
-        // Displays steps in terminal
-        printStepBar(step++);
-        cout << steps << endl;
-
-        Sleep(1000);
-    }
+    algorithm(anthill, ants);
 }
 
 int main() {
     
-    anthill1();
+    anthill0();
 
     return 0;
 }
