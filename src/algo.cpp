@@ -12,7 +12,7 @@ void printStepBar (int step) {
 void algorithm(std::vector<std::shared_ptr<Node>> anthill, std::vector<Ants> ants) {
     int step = 1;
     
-    while (!anthill[3]->isFull()) {
+    while (!anthill[7]->isFull()) {
         std::string steps = "";
         for (Ants &ant : ants) {
             if (ant.room->isEnding) {
