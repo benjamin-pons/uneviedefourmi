@@ -109,10 +109,6 @@ void anthill2(){
         ants.push_back(Ants(i));
     }
 
-    for (int i = 0; i < 3; ++i) {
-        anthill[i]->capacity = 1;
-    }
-
     // Changing last node capacity to ants amount
     anthill[ENDING_ROOM]->capacity = ANTS_AMOUNT;
 
@@ -139,14 +135,14 @@ void anthill2(){
 
 void anthill3(){
         const int ANTS_AMOUNT = 5;
-
+        const int ENDING_ROOM = 3;
     // Creating Nodes in a vector
     std::vector<std::shared_ptr<Node>> anthill;
     for (int i = 0; i < 4; i++) {
         anthill.push_back(std::make_shared<Node>(i));;
     }
 
-    anthill[3]->isEnding = true;
+    anthill[ENDING_ROOM]->isEnding = true;
 
     // Creating Ants in a vector
     vector<Ants> ants;
@@ -154,12 +150,8 @@ void anthill3(){
         ants.push_back(Ants(i));
     }
 
-    for (int i = 0; i < 3; ++i) {
-        anthill[i]->capacity = 1;
-    }
-
     // Changing last node capacity to ants amount
-    anthill[3]->capacity = ANTS_AMOUNT;
+    anthill[ENDING_ROOM]->capacity = ANTS_AMOUNT;
 
     // Putting ants in starting room
     for (Ants& ant : ants) {
