@@ -295,8 +295,25 @@ void anthill5(){
 }
 
 int main() {
-    
-    anthill4();
-
-    return 0;
+    int rep = -1;
+    cout<<"0. fourmiliere 0 \n1. fourmiliere 1\n2. fourmiliere 2\n3. fourmiliere 3\n4. fourmiliere 4\n5. fourmiliere 5" << endl;
+    cin >> rep;
+    if (rep == 0){
+        anthill0();
+    }
+    else if (rep == 1){
+        anthill1();
+    }
+    else if (rep == 2){
+        anthill2();
+    }
+    else if (rep == 3){
+        anthill3();
+    }
+    else if (rep == 4){
+        anthill4();
+    }
+    else if (rep == 5){
+        anthill5();
+    }
 }
