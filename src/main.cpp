@@ -182,10 +182,11 @@ void anthill3(){
 void anthill4(){
         const int ANTS_AMOUNT = 10;
         const int ENDING_ROOM = 7;
+        const int SIZE = 8;
 
     // Creating Nodes in a vector
     std::vector<std::shared_ptr<Node>> anthill;
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < SIZE ; i++) {
         anthill.push_back(std::make_shared<Node>(i));;
     }
 
@@ -208,7 +209,7 @@ void anthill4(){
     }
 
 
-    int matrix[8][8] = {{0, 1, 0, 0, 0, 0, 0, 0},
+    int matrix[SIZE][SIZE] = {{0, 1, 0, 0, 0, 0, 0, 0},
                         {1, 0, 1, 1, 0, 0, 0, 0},
                         {0, 1 , 0, 0, 1, 0, 0, 0},
                         {0, 1, 0, 0, 1, 0, 0, 0},
@@ -217,8 +218,8 @@ void anthill4(){
                         {0, 0, 0, 0, 1, 0, 0, 1},
                         {0, 0, 0, 0, 0, 1, 1, 0}};
 
-    for (int n = 0; n < 8; n++) {
-        for(int m = 0; m < 8; m++) {
+    for (int n = 0; n < SIZE; n++) {
+        for(int m = 0; m < SIZE ; m++) {
             if (matrix[n][m] == 1) {
                 anthill[n]->addNeighbor(anthill[m]);
             }
@@ -230,10 +231,11 @@ void anthill4(){
 void anthill5(){
     const int ANTS_AMOUNT = 50;
     const int ENDING_ROOM = 15;
+    const int SIZE = 16;
 
     // Creating Nodes in a vector
     std::vector<std::shared_ptr<Node>> anthill;
-    for (int i = 0; i < ENDING_ROOM + 1; i++) {
+    for (int i = 0; i < SIZE; i++) {
         anthill.push_back(std::make_shared<Node>(i));;
     }
 
@@ -263,7 +265,7 @@ void anthill5(){
         ant.changeRoom(anthill[0]);
     }
 
-    int matrix[16][16] = {
+    int matrix[SIZE][SIZE] = {
         { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         { 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -282,8 +284,8 @@ void anthill5(){
         { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 }
     };
 
-    for (int n = 0; n < 16; n++) {
-        for(int m = 0; m < 16; m++) {
+    for (int n = 0; n < SIZE; n++) {
+        for(int m = 0; m < SIZE; m++) {
             if (matrix[n][m] == 1) {
                 anthill[n]->addNeighbor(anthill[m]);
             }
@@ -291,7 +293,7 @@ void anthill5(){
     }
     algorithm(anthill, ants);
 }
-}
+
 int main() {
     
     anthill4();
