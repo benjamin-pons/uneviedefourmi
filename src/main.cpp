@@ -134,8 +134,8 @@ void anthill2(){
 }
 
 void anthill3(){
-        const int ANTS_AMOUNT = 5;
-        const int ENDING_ROOM = 3;
+    const int ANTS_AMOUNT = 5;
+    const int ENDING_ROOM = 3;
     // Creating Nodes in a vector
     std::vector<std::shared_ptr<Node>> anthill;
     for (int i = 0; i < 4; i++) {
@@ -173,7 +173,7 @@ void anthill3(){
             }
         }
     }
-    algorithm(anthill, ants);
+    algorithm2(anthill, ants);
 }
 
 

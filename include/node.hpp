@@ -11,6 +11,7 @@ class Node {
         int capacity = 1;
         int population = 0;
         bool isEnding = false;
+        bool visited = false;
         std::vector<std::shared_ptr<Node>> neighbors;
         
         Node(int roomId);
