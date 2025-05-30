@@ -227,7 +227,7 @@ void anthill4(){
             }
         }
     }
-    algorithm(anthill, ants);
+    algorithm_ant(anthill, ants, ENDING_ROOM);
 }
 
 void anthill5(){
@@ -293,12 +293,13 @@ void anthill5(){
             }
         }
     }
-    algorithm(anthill, ants);
+    algorithm_ant(anthill, ants, ENDING_ROOM);
 }
 
 int main() {
     int rep = -1;
-    cout<<"0. fourmiliere 0 \n1. fourmiliere 1\n2. fourmiliere 2\n3. fourmiliere 3\n4. fourmiliere 4\n5. fourmiliere 5" << endl;
+    cout << "0. fourmiliere 0 \n1. fourmiliere 1\n2. fourmiliere 2\n3. fourmiliere 3\n4. fourmiliere 4\n5. fourmiliere 5" << endl;
+    cout << "Quel fourmiliere utiliser ? : ";
     cin >> rep;
     if (rep == 0){
         anthill0();
@@ -317,5 +318,9 @@ int main() {
     }
     else if (rep == 5){
         anthill5();
+    }
+    else {
+        cout << "\nReponse invalide\n" << endl;
+        return main();
     }
 }
