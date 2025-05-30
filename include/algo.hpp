@@ -10,6 +10,6 @@
 
 void printStepBar (int step);
 void algorithm(std::vector<std::shared_ptr<Node>> anthill, std::vector<Ants> ants);
-void algorithm2(std::vector<std::shared_ptr<Node>> anthill, std::vector<Ants> ants);
+void algorithm_ant(std::vector<std::shared_ptr<Node>> anthill, std::vector<Ants> ants, const int ENDING_ROOM);
 
 #endif
