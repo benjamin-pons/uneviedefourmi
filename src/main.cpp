@@ -388,7 +388,6 @@ void generate_anthill(int ants_amount, int ending_room, std::vector<std::vector<
     // Changing last node capacity to ants amount
     anthill[ENDING_ROOM]->capacity = ANTS_AMOUNT;
 
-    cout << m << endl;
     // Changing other rooms capacity
     for (auto& j : m) {
         anthill[j.first]->capacity = j.second;
@@ -430,10 +429,10 @@ int main() {
         generate_anthill(5, 5, a3);
     }
     else if (rep == 4){
-        generate_anthill(10, 7, a4);
+        generate_anthill(10, 7, a4, a4_map);
     }
     else if (rep == 5){
-        generate_anthill(50, 15, a0);
+        generate_anthill(50, 15, a5, a5_map);
     }
     else {
         cout << "\nReponse invalide\n" << endl;
