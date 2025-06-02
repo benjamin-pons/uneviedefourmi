@@ -49,48 +49,7 @@ vector<shared_ptr<Node>> pathfind(shared_ptr<Node> start, shared_ptr<Node> end, 
     return {}; // If no path is found
 }
 
-void algorithm(vector<shared_ptr<Node>> anthill, vector<Ants> ants) {
-    int step = 1;
-    
-    while (!anthill[3]->isFull()) {
-        string steps = "";
-        for (Ants &ant : ants) {
-            if (ant.room->isEnding) {
-                continue; // Ant has already arrived, skip to the next
-            }
-
-            else {
-                // If ending room is a neighbor, go directly to it
-                for (shared_ptr<Node> neighbor : anthill[ant.room->id]->neighbors) {
-                    if (neighbor->isEnding) {
-                        int old_room = ant.room->id;
-                        ant.changeRoom(neighbor);
-                        steps += "\nf" + to_string(ant.name) + " - S" + to_string(old_room) + " - S" +  to_string(ant.room->id);
-                        break;
-                    }
-                }
-
-                for (shared_ptr<Node> neighbor : anthill[ant.room->id]->neighbors) { 
-                    if (!neighbor->isFull() && (ant.room->id < neighbor->id)) {
-                        int old_room = ant.room->id;
-                        ant.changeRoom(neighbor);
-                        steps += "\nf" + to_string(ant.name) + " - S" + to_string(old_room) + " - S" +  to_string(ant.room->id);
-                        break;
-                    }
-                }
-            }
-        }
-
-        // Displays steps in terminal
-        printStepBar(step++);
-        cout << steps << endl;
-
-        Sleep(1000);   
-    }
-}
-
 void algorithm_ant(vector<shared_ptr<Node>> anthill, vector<Ants> ants, const int ENDING_ROOM) {
-
     for (Ants &ant : ants) {
         ant.path = pathfind(ant.room, anthill[ENDING_ROOM]);
         ant.pathIndex = 0;
@@ -128,6 +87,5 @@ void algorithm_ant(vector<shared_ptr<Node>> anthill, vector<Ants> ants, const in
         }
         printStepBar(step++);
         cout << steps << endl;
-        // Sleep(200);
     }
 }
